@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pymysql
+python-dotenv
+requests
+pandas
+joblib
+xgboost
+scikit-learn
+
+# pip install -r requirements.txt
