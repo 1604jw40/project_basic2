@@ -38,7 +38,7 @@ project_basic2/
 
 ## 4. 실행 환경
 
-```md id="k0v3zt"
+md id="k0v3zt"
 - Python 3.9 이상
 - FastAPI
 - MariaDB
