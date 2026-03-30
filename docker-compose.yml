@@ -1,22 +1,18 @@
-version: "3.9"
-
 services:
   db:
-    image: mariadb:11
-    container_name: telco_db
-    restart: always
-    env_file:
-      - .env
-    environment:
-      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MARIADB_DATABASE: ${MYSQL_DATABASE}
-      MARIADB_USER: ${MYSQL_USER}
-      MARIADB_PASSWORD: ${MYSQL_PASSWORD}
-    ports:
-      - "3307:3306"
-    volumes:
-      - mariadb_data:/var/lib/mysql
-      - ./database/init:/docker-entrypoint-initdb.d
+  image: mariadb:11
+  container_name: telco_db
+  restart: always
+  environment:
+    MARIADB_ROOT_PASSWORD: root1234
+    MARIADB_DATABASE: telco_churn_db
+    MARIADB_USER: appuser
+    MARIADB_PASSWORD: app1234
+  ports:
+    - "3307:3306"
+  volumes:
+    - mariadb_data:/var/lib/mysql
+    - ./database/init:/docker-entrypoint-initdb.d
 
   model_api:
     build:
@@ -24,12 +20,17 @@ services:
       dockerfile: model_api/Dockerfile
     container_name: telco_model_api
     restart: always
-    env_file:
-      - .env
-    ports:
-      - "8001:8001"
     depends_on:
       - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: appuser
+      DB_PASSWORD: app1234
+      DB_NAME: telco_churn_db
+      MODEL_API_URL: http://model_api:8001
+    ports:
+      - "8001:8001"
 
   backend:
     build:
@@ -37,13 +38,18 @@ services:
       dockerfile: backend/Dockerfile
     container_name: telco_backend
     restart: always
-    env_file:
-      - .env
-    ports:
-      - "8000:8000"
     depends_on:
       - db
       - model_api
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: appuser
+      DB_PASSWORD: app1234
+      DB_NAME: telco_churn_db
+      MODEL_API_URL: http://model_api:8001
+    ports:
+      - "8000:8000"
 
 volumes:
   mariadb_data:
