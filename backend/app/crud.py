@@ -1,3 +1,17 @@
+def generate_next_customer_id(conn) -> str:
+    """
+    중복 방지를 위해 customer_id_sequence 테이블의 AUTO_INCREMENT를 사용
+    예: NEW_000001, NEW_000002
+    """
+    sql = "INSERT INTO customer_id_sequence () VALUES ()"
+
+    with conn.cursor() as cursor:
+        cursor.execute(sql)
+        seq_id = cursor.lastrowid
+
+    return f"NEW_{seq_id:06d}"
+
+
 def insert_customer(conn, customer: dict):
     sql = """
     INSERT INTO customers_raw (

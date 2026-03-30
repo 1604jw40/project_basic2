@@ -18,3 +18,5 @@ test_db_connection.py: DB 연결 테스트
 fetch_one_customer.py: 고객 조회 테스트
 run_single_prediction.py: 예측 테스트
 run_and_save_prediction.py: 예측 후 DB 저장 테스트
+
+python -m uvicorn model_api.app.main:app --host 127.0.0.1 --port 8001 --reload --reload-dir model_api --reload-dir model
