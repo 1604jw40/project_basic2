@@ -51,5 +51,21 @@ services:
     ports:
       - "8000:8000"
 
+  init_data:
+    build:
+      context: .
+      dockerfile: init.Dockerfile
+    container_name: telco_init_data
+    depends_on:
+      - db
+      - model_api
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: appuser
+      DB_PASSWORD: app1234
+      DB_NAME: telco_churn_db
+    restart: "no"
+
 volumes:
   mariadb_data:
