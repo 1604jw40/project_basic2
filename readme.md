@@ -86,7 +86,7 @@ python scripts/run_batch_prediction.py
 
 ## 9. 프론트 연동 방법
 
-```md id="hy7cah"
+md id="hy7cah"
 프론트는 아래 두 API를 사용합니다.
 
 - `POST /customers/predict`
