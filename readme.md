@@ -101,3 +101,9 @@ md id="hy7cah"
 - Docker/배포 환경에서는 `MODEL_API_URL`을 배포된 model_api 주소로 변경해야 합니다.
 - CORS는 현재 개발용으로 전체 허용(`*`) 상태이며, 배포 시 프론트 주소만 허용하도록 제한하는 것이 좋습니다.
 - 팀원 공유용으로는 ngrok 또는 정식 배포 URL을 사용할 수 있습니다.
+
+## Docker 실행 방법
+
+bash
+docker compose up --build -d
+
