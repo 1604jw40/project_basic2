@@ -13,10 +13,15 @@ from backend.app.model_client import predict_customer
 
 app = FastAPI(title="Backend API")
 
+origins = [
+    "http://localhost:5173",
+    "https://sw-project-num2-front.vercel.app",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=origins,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -34,17 +39,13 @@ def create_customer_and_predict(customer: CustomerCreate):
     try:
         customer_data = customer.dict()
 
-        # 중복 없는 신규 customer_id 생성
         customer_id = generate_next_customer_id(conn)
         customer_data["customer_id"] = customer_id
 
-        # 원본 저장
         insert_customer(conn, customer_data)
 
-        # 모델 API 호출
         prediction = predict_customer(customer_data)
 
-        # 예측 저장
         insert_prediction(conn, prediction)
 
         conn.commit()
@@ -66,7 +67,8 @@ def high_risk_list():
         return rows
     finally:
         conn.close()
-        
+
+
 @app.get("/")
 def root():
     return {
