@@ -7,4 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app
 
-CMD ["python", "-m", "uvicorn", "model_api.app.main:app", "--host", "0.0.0.0", "--port", "8001"]
+CMD ["python", "scripts/init_data.py"]

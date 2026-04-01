@@ -3,7 +3,6 @@ from typing import Optional
 
 
 class CustomerCreate(BaseModel):
-    customer_id: str
     gender: str
     senior_citizen: int
     partner: str

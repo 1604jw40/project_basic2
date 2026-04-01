@@ -1,4 +1,4 @@
-LOAD DATA INFILE 'C:/telco-customer.csv'
+LOAD DATA INFILE '/Users/macmini4/project_basic2/data/raw/telco-customer.csv'
 INTO TABLE customers_raw
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
