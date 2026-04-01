@@ -57,7 +57,11 @@ export default function HighRiskPage() {
     <div className="stack-gap">
       <section className="card toolbar-card">
         <div>
+<<<<<<< HEAD
           <p className="section-kicker">고위험 고객</p>
+=======
+          <p className="section-kicker">High-Risk Customers</p>
+>>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
           <h2>고위험 고객 목록</h2>
           <p>고위험 고객 총 건수와 평균 점수를 빠르게 확인할 수 있습니다.</p>
         </div>
@@ -72,7 +76,11 @@ export default function HighRiskPage() {
           <strong>{items.length}건</strong>
         </div>
         <div className="card stat-card">
+<<<<<<< HEAD
           <span className="meta-label">고위험 고객 평균 이탈 점수</span>
+=======
+          <span className="meta-label">고위험 고객 평균 score</span>
+>>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
           <strong>{averageScore.toFixed(4)}</strong>
         </div>
       </section>
@@ -82,7 +90,11 @@ export default function HighRiskPage() {
       <section className="card filter-card">
         <div className="filter-grid">
           <label className="field-wrapper">
+<<<<<<< HEAD
             <span className="field-label">고객 ID 검색</span>
+=======
+            <span className="field-label">Customer ID 검색</span>
+>>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
             <input
               type="text"
               placeholder="예: NEW_000002 또는 7216-EWTRS"
@@ -91,7 +103,11 @@ export default function HighRiskPage() {
             />
           </label>
           <label className="field-wrapper compact-select">
+<<<<<<< HEAD
             <span className="field-label">이탈 점수 정렬</span>
+=======
+            <span className="field-label">Score 정렬</span>
+>>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
             <select value={sortOrder} onChange={(event) => setSortOrder(event.target.value)}>
               <option value="desc">높은 순</option>
               <option value="asc">낮은 순</option>

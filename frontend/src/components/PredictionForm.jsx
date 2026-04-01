@@ -35,7 +35,11 @@ export default function PredictionForm({ values, errors, onChange, onSubmit, loa
     <form className="card form-card" onSubmit={onSubmit}>
       <div className="card-header-row">
         <div>
+<<<<<<< HEAD
           <p className="section-kicker">예측 입력</p>
+=======
+          <p className="section-kicker">Prediction Input</p>
+>>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
           <h2>신규 고객 예측 입력</h2>
           <p className="helper-text">
             필수값, 숫자 범위, 인터넷 부가서비스 연동 여부를 자동으로 검증합니다.

@@ -4,7 +4,11 @@ export default function RecentPredictionCard({ item }) {
   if (!item) {
     return (
       <section className="card summary-card muted-card">
+<<<<<<< HEAD
         <p className="section-kicker">최근 예측</p>
+=======
+        <p className="section-kicker">Recent Prediction</p>
+>>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
         <h2>최근 예측 결과</h2>
         <p>아직 저장된 예측 결과가 없습니다.</p>
       </section>
@@ -17,13 +21,18 @@ export default function RecentPredictionCard({ item }) {
     <section className="card summary-card">
       <div className="card-header-row">
         <div>
+<<<<<<< HEAD
           <p className="section-kicker">최근 예측</p>
+=======
+          <p className="section-kicker">Recent Prediction</p>
+>>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
           <h2>최근 예측 결과</h2>
         </div>
         <StatusBadge predictionLabel={item.prediction_label} />
       </div>
       <div className="mini-stat-grid compact-top">
         <div>
+<<<<<<< HEAD
           <span className="meta-label">고객 ID</span>
           <strong>{item.customer_id}</strong>
         </div>
@@ -33,6 +42,17 @@ export default function RecentPredictionCard({ item }) {
         </div>
         <div>
           <span className="meta-label">판단 기준값</span>
+=======
+          <span className="meta-label">Customer ID</span>
+          <strong>{item.customer_id}</strong>
+        </div>
+        <div>
+          <span className="meta-label">Score</span>
+          <strong>{Number(item.score).toFixed(4)}</strong>
+        </div>
+        <div>
+          <span className="meta-label">Threshold</span>
+>>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
           <strong>{Number(item.threshold).toFixed(4)}</strong>
         </div>
         <div>
