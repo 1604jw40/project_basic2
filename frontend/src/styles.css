@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ============================================================
    Telco Churn Prediction — Admin Dashboard Theme
    Aesthetic: Clean modern dashboard (Linear / Vercel inspired)
@@ -133,76 +132,10 @@ button { cursor: pointer; }
   display: flex;
   gap: 2px;
   margin-bottom: -1px;
-=======
-:root {
-  font-family: 'Arial', 'Malgun Gothic', sans-serif;
-  color: #17202a;
-  background: #f4f7fb;
-  line-height: 1.5;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  background: linear-gradient(180deg, #eff4fb 0%, #f8fafc 100%);
-}
-
-button,
-input,
-select {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-.app-shell {
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 32px 20px 56px;
-}
-
-.app-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 24px;
-  margin-bottom: 24px;
-}
-
-.app-header h1 {
-  margin: 6px 0;
-  font-size: 2rem;
-}
-
-.eyebrow,
-.section-kicker,
-.meta-label,
-.field-hint {
-  color: #5c6a7b;
-  font-size: 0.9rem;
-}
-
-.subtext {
-  margin: 0;
-  color: #4d5d6c;
-}
-
-.nav-tabs {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
->>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
 }
 
 .nav-tabs a {
   text-decoration: none;
-<<<<<<< HEAD
   padding: 10px 20px;
   font-size: 0.875rem;
   font-weight: 600;
@@ -234,39 +167,11 @@ button {
 
 .prediction-layout {
   grid-template-columns: minmax(0, 5fr) minmax(340px, 3fr);
-=======
-  padding: 10px 16px;
-  border-radius: 999px;
-  color: #234;
-  background: #e4edf8;
-  font-weight: 600;
-}
-
-.nav-tabs a.active {
-  background: #0f62fe;
-  color: white;
-}
-
-.page-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.page-grid {
-  display: grid;
-  gap: 20px;
-}
-
-.prediction-layout {
-  grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
->>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
 }
 
 .sticky-column {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
   gap: 20px;
   position: sticky;
   top: 100px;
@@ -385,41 +290,11 @@ button {
   display: flex;
   flex-direction: column;
   gap: 24px;
-=======
-  gap: 16px;
-}
-
-.card {
-  background: white;
-  border-radius: 18px;
-  padding: 22px;
-  box-shadow: 0 10px 30px rgba(16, 39, 74, 0.08);
-}
-
-.card-header-row,
-.toolbar-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 18px;
-}
-
-.card h2,
-.card h3 {
-  margin: 0 0 8px;
-}
-
-.form-card {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
->>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
 }
 
 .form-section {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
   gap: 16px;
   padding-top: 20px;
   border-top: 1px solid var(--border-light);
@@ -521,75 +396,15 @@ select:disabled, input:disabled {
 
 .primary-btn:active:not(:disabled) {
   transform: scale(0.98);
-=======
-  gap: 14px;
-}
-
-.form-grid {
-  display: grid;
-  gap: 14px;
-}
-
-.form-grid.three-col {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.field-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.field-label {
-  font-weight: 600;
-}
-
-input,
-select {
-  width: 100%;
-  padding: 11px 12px;
-  border-radius: 12px;
-  border: 1px solid #cfdae8;
-  background: #fbfdff;
-}
-
-.field-error {
-  color: #c0392b;
-  font-size: 0.88rem;
-}
-
-.form-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.primary-btn,
-.secondary-btn {
-  border: 0;
-  border-radius: 12px;
-  padding: 12px 18px;
-  font-weight: 700;
-}
-
-.primary-btn {
-  background: #0f62fe;
-  color: white;
->>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
 }
 
 .primary-btn:disabled,
 .secondary-btn:disabled {
-<<<<<<< HEAD
   opacity: 0.5;
-=======
-  opacity: 0.6;
->>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
   cursor: not-allowed;
 }
 
 .secondary-btn {
-<<<<<<< HEAD
   border: 1px solid var(--border-default);
   border-radius: var(--radius-sm);
   padding: 11px 20px;
@@ -824,57 +639,11 @@ select {
   content: '⚠';
   font-size: 1rem;
   flex-shrink: 0;
-=======
-  background: #e8eef6;
-  color: #243647;
-}
-
-.result-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.result-grid strong,
-.summary-card p,
-.table-card td,
-.table-card th {
-  word-break: break-word;
-}
-
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 0.92rem;
-}
-
-.status-badge.danger {
-  background: #fdebec;
-  color: #b42318;
-}
-
-.status-badge.safe {
-  background: #e8f7ee;
-  color: #117a36;
-}
-
-.error-banner {
-  background: #fdecec;
-  color: #9f1d1d;
-  border: 1px solid #f3c7c7;
-  padding: 14px 16px;
-  border-radius: 14px;
->>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
 }
 
 .loading-box {
   display: flex;
   align-items: center;
-<<<<<<< HEAD
   justify-content: center;
   gap: 12px;
   padding: 40px 20px;
@@ -1027,54 +796,10 @@ tbody tr:last-child td { border-bottom: none; }
 .guide-card {
   background: linear-gradient(135deg, var(--accent-bg) 0%, #f0f4ff 100%);
   border-color: #dbeafe;
-=======
-  gap: 12px;
-  padding: 18px 20px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(16, 39, 74, 0.08);
-}
-
-.spinner {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 3px solid #d8e3f1;
-  border-top-color: #0f62fe;
-  animation: spin 0.9s linear infinite;
-}
-
-.table-wrapper {
-  overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th,
-td {
-  text-align: left;
-  padding: 14px 12px;
-  border-bottom: 1px solid #edf2f7;
-}
-
-th {
-  color: #526273;
-  font-size: 0.92rem;
-}
-
-.stack-gap {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
->>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
 }
 
 .simple-list {
   margin: 12px 0 0;
-<<<<<<< HEAD
   padding-left: 0;
   list-style: none;
   display: flex;
@@ -1141,34 +866,6 @@ th {
   .app-header { flex-direction: column; align-items: flex-start; }
   .toolbar-card { flex-direction: column; }
   .card-header-row { flex-direction: column; }
-=======
-  padding-left: 18px;
-}
-
-.empty-card {
-  text-align: center;
-  color: #526273;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (max-width: 1024px) {
-  .prediction-layout,
-  .form-grid.three-col {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .app-header,
-  .toolbar-card,
-  .card-header-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
->>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
 }
 
 @media (max-width: 720px) {
@@ -1182,100 +879,7 @@ th {
     grid-template-columns: 1fr;
   }
 
-<<<<<<< HEAD
   .app-shell { padding: 0 14px 40px; }
   .app-header { padding: 16px 14px 0; margin: 0 -14px; }
   .nav-tabs a { padding: 8px 14px; font-size: 0.82rem; }
-=======
-  .app-shell {
-    padding: 24px 14px 40px;
-  }
-}
-
-
-.helper-text {
-  margin: 0;
-  color: #5c6a7b;
-}
-
-.required-mark {
-  color: #d92d20;
-  font-weight: 700;
-}
-
-select:disabled,
-input:disabled {
-  background: #eef2f7;
-  color: #7b8794;
-  cursor: not-allowed;
-}
-
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.stat-card strong {
-  font-size: 1.8rem;
-  margin-top: 8px;
-  display: block;
-}
-
-.filter-card {
-  padding-top: 18px;
-  padding-bottom: 18px;
-}
-
-.filter-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(180px, 1fr);
-  gap: 16px;
-}
-
-.compact-select select {
-  max-width: 220px;
-}
-
-.mini-stat-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.compact-top {
-  margin-top: 8px;
-}
-
-.muted-card {
-  color: #526273;
-}
-
-
-.risk-level-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 14px;
-}
-
-.risk-level-card {
-  border: 1px solid #e5ebf3;
-  border-radius: 16px;
-  padding: 14px;
-  background: #f9fbff;
-}
-
-.risk-level-card strong {
-  display: block;
-  font-size: 1.15rem;
-  margin-top: 6px;
-}
-
-.risk-level-card.active {
-  border-color: #0f62fe;
-  background: #eaf2ff;
-  box-shadow: inset 0 0 0 1px rgba(15, 98, 254, 0.15);
->>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
 }

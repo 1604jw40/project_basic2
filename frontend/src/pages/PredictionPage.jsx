@@ -25,13 +25,8 @@ export default function PredictionPage() {
   const [formErrors, setFormErrors] = useState({});
 
   const summaryText = useMemo(() => {
-<<<<<<< HEAD
     if (!result) return '고객 데이터를 입력하고 예측 버튼을 눌러주세요.';
     return `최신 예측 고객: ${result.customer_id}`;
-=======
-    if (!result) return '신규 고객 데이터를 입력한 뒤 예측 버튼을 눌러 결과를 확인하세요.';
-    return `최신 예측 고객 ID: ${result.customer_id}`;
->>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
   }, [result]);
 
   function handleChange(event) {
@@ -113,7 +108,6 @@ export default function PredictionPage() {
         />
       </div>
       <div className="sticky-column">
-<<<<<<< HEAD
         <section className="card summary-card guide-card">
           <p className="section-kicker">안내</p>
           <h2>사용 안내</h2>
@@ -122,16 +116,6 @@ export default function PredictionPage() {
             <li>고객 ID는 백엔드가 자동 생성합니다.</li>
             <li>필수값 누락 시 폼에서 바로 경고를 표시합니다.</li>
             <li>인터넷 없음 선택 시 부가서비스가 자동 비활성화됩니다.</li>
-=======
-        <section className="card summary-card">
-          <p className="section-kicker">Guide</p>
-          <h2>사용 안내</h2>
-          <p>{summaryText}</p>
-          <ul className="simple-list">
-            <li>customer_id는 백엔드가 자동 생성합니다.</li>
-            <li>필수값 누락 시 폼에서 바로 경고를 표시합니다.</li>
-            <li>인터넷 없음 선택 시 관련 부가서비스는 자동 비활성화됩니다.</li>
->>>>>>> 4523a0d1596787f772943c7a86dec937ab52ccd0
             <li>계약 유형은 드롭다운 단일 선택 방식입니다.</li>
           </ul>
         </section>

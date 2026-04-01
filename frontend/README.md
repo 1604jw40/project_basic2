@@ -7,7 +7,6 @@ React + Vite 기반의 텔코 고객 이탈 예측 프론트엔드 코드 틀입
 - 백엔드가 신규 고객 ID를 자동 생성
 - `POST /customers/predict` 호출 시 실제 고객 raw 데이터만 전송
 - `GET /predictions/high-risk`로 고위험 고객 목록 조회
-- Base URL: `https://interplacental-liana-puddly.ngrok-free.dev`
 
 ## 실행 방법
 ```bash
