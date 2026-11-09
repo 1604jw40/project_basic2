@@ -14,7 +14,9 @@ from model.src.preprocess import transform_customer_to_dataframe
 DB_HOST = os.getenv("DB_HOST", "db")
 DB_PORT = int(os.getenv("DB_PORT", "3306"))
 DB_USER = os.getenv("DB_USER", "appuser")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "app1234")
+DB_PASSWORD = os.environ["DB_PASSWORD"]
+if not DB_PASSWORD.strip():
+    raise ValueError("DB_PASSWORD must be set and non-empty")
 DB_NAME = os.getenv("DB_NAME", "telco_churn_db")
 
 

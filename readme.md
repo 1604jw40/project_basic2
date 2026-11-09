@@ -39,7 +39,8 @@ project_basic2/
 - Docker Engine/Desktop와 Docker Compose v2가 필요합니다. API 컨테이너는 Python 3.10, DB는 MariaDB 11을 사용합니다.
 - 프론트엔드는 별도로 실행합니다. Vite 5에 맞는 Node.js 18 이상과 npm이 필요합니다.
 - 추론에는 `model/artifacts/model_v1.joblib`이 필요합니다. 신뢰할 수 없는 joblib 파일을 로드하지 마세요.
-- 현재 Compose와 초기화 스크립트에는 개발용 DB 인증정보가 직접 설정되어 있습니다. 운영 환경에 그대로 노출하지 말고, 운영 전 비밀정보 분리와 인증정보 교체가 필요합니다. 루트 `.env`만 바꿔도 Compose의 고정값이 바뀌는 구조는 아닙니다.
+- Compose는 로컬 `.env`의 `DB_PASSWORD`와 `DB_ROOT_PASSWORD`를 필수로 요구합니다. `.env.example`을 복사한 뒤 두 값을 직접 설정하세요. 예제의 빈 값으로는 실행되지 않습니다. `.dockerignore`는 환경 파일이 이미지 빌드에 복사되지 않도록 제외합니다.
+- 기존 DB 볼륨의 비밀번호는 `.env` 수정만으로 바뀌지 않습니다. 기존 볼륨은 현재 계정과 일치하는 값을 사용하고, 과거에 공개된 비밀번호를 실제로 사용했다면 별도의 안전한 교체 절차가 필요합니다. 볼륨 삭제로 해결하지 마세요. 과거 Git 이력의 값은 이 변경으로 제거되지 않습니다.
 - 실제 비밀번호·키·`.env`·개인 고객 데이터는 커밋하지 마세요. 기존 CSV나 모델을 재배포할 때도 출처·이용 조건을 확인해야 합니다.
 
 ## 1. API와 DB 실행
@@ -49,10 +50,11 @@ project_basic2/
 ```bash
 git clone https://github.com/1604jw40/project_basic2.git
 cd project_basic2
+# .env.example을 .env로 복사하고 두 비밀번호를 설정한 다음 실행
 docker compose up --build db model_api backend
 ```
 
-**서비스 이름을 생략하지 마세요.** 전체 `docker compose up`은 `init_data`까지 실행할 수 있습니다. 해당 서비스는 기존 고객·예측·ID 시퀀스 데이터를 삭제하고 CSV로 다시 채웁니다.
+`init_data`는 `initialize` 프로필로 분리되어 기본 실행에 포함되지 않습니다. 단, 서비스를 직접 지정하거나 해당 프로필을 켜면 실행될 수 있습니다. 해당 서비스는 기존 고객·예측·ID 시퀀스 데이터를 삭제하고 CSV로 다시 채우므로 일반 실행에서 사용하지 마세요.
 
 새 DB 볼륨에서는 `database/init/00_init.sql`로 테이블을 만듭니다. 기존 볼륨에는 초기화 SQL이 자동 재적용되지 않습니다. DB 준비가 끝난 뒤 다음 주소를 확인하세요.
 
@@ -126,7 +128,7 @@ python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
 
 ## 데이터 적재·배치 처리 주의사항
 
-- `scripts/init_data.py` / Compose `init_data`: **기존 고객·예측·ID 시퀀스를 삭제**하고 `data/raw/telco-customer.csv`를 적재한 뒤 배치 예측합니다. 빈 개발 DB에서 의도적으로 초기화할 때만 검토하여 실행하세요. 기존 데이터가 있으면 먼저 백업해야 합니다.
+- `scripts/init_data.py` / Compose `init_data` (`initialize` 프로필): **기존 고객·예측·ID 시퀀스를 삭제**하고 `data/raw/telco-customer.csv`를 적재한 뒤 배치 예측합니다. 빈 개발 DB에서 의도적으로 초기화할 때만 검토하여 실행하세요. 기존 데이터가 있으면 먼저 백업해야 합니다.
 - `scripts/run_batch_prediction.py`: 기존 고객 전체를 읽고 예측 행을 추가합니다. 반복 실행하면 예측 이력이 추가되므로 읽기 전용 점검용으로 실행하지 마세요.
 - `database/sql/`의 개별 적재 SQL은 CSV 경로와 실행 환경을 확인해야 합니다. Docker 최초 테이블 구성은 `database/init/`과 구분됩니다.
 
@@ -136,4 +138,4 @@ python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
 - Backend CORS는 전체 허용이 아니라 `backend/app/main.py`에 지정된 프론트 주소 목록을 사용합니다. 다른 주소로 실행·배포하면 허용 목록을 점검하세요.
 - 현재 API 라우트에는 인증·인가 처리가 구현되어 있지 않습니다. 공개 운영 전 접근 제어, 비밀정보 관리, 오류 응답 및 DB 포트 노출을 점검해야 합니다.
 - 모델 점수는 예측 결과이며 검증된 운영 성능을 뜻하지 않습니다. 이 문서에서는 정확도나 일반화 성능을 보장하지 않습니다.
-- 이 README는 저장소의 소스·설정과 대조하여 정리했습니다. Docker 실행, DB 적재, 실제 모델 추론, 프론트 빌드의 통합 동작은 이 문서 변경 과정에서 실행 검증하지 않았습니다.
+- 이 README는 저장소의 소스·설정과 대조하여 정리했습니다. 설정 변경은 YAML 구조·Python 구문 및 필수 환경변수 처리를 정적으로 확인했습니다. Docker 실행, DB 적재, 실제 모델 추론, 프론트 빌드의 통합 동작은 이 문서 변경 과정에서 실행 검증하지 않았습니다.
